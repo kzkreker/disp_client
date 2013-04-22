@@ -46,9 +46,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-1</y>
+        <y>0</y>
         <width>351</width>
-        <height>251</height>
+        <height>281</height>
        </rect>
       </property>
       <property name="title">
@@ -60,7 +60,46 @@
          <x>0</x>
          <y>20</y>
          <width>351</width>
-         <height>221</height>
+         <height>261</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="Activ_Label">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>311</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Последняя активность (Включая активные)</string>
+       </property>
+      </widget>
+      <widget class="QDateTimeEdit" name="activDataTime">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>50</y>
+         <width>194</width>
+         <height>27</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QTableView" name="activeCarQTable">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>83</y>
+         <width>341</width>
+         <height>192</height>
         </rect>
        </property>
       </widget>
@@ -69,9 +108,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>240</y>
+        <y>280</y>
         <width>351</width>
-        <height>421</height>
+        <height>381</height>
        </rect>
       </property>
       <property name="title">
@@ -83,7 +122,7 @@
          <x>0</x>
          <y>20</y>
          <width>351</width>
-         <height>401</height>
+         <height>361</height>
         </rect>
        </property>
        <property name="currentIndex">
@@ -268,9 +307,6 @@
        </property>
       </widget>
      </widget>
-     <zorder>groupBox</zorder>
-     <zorder>groupBox_2</zorder>
-     <zorder>tableView</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -389,8 +425,17 @@
       <property name="whatsThis">
        <string>The Marble widget displays a virtual globe.</string>
       </property>
+      <property name="zoom">
+       <number>2100</number>
+      </property>
       <property name="mapThemeId">
        <string>earth/openstreetmap/openstreetmap.dgml</string>
+      </property>
+      <property name="longitude" stdset="0">
+       <double>82.615255000000005</double>
+      </property>
+      <property name="latitude" stdset="0">
+       <double>49.905400000000007</double>
       </property>
      </widget>
     </widget>

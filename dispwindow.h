@@ -13,6 +13,10 @@
 #include <QtGui/QApplication>
 #include <QtGui/QKeyEvent>
 #include <QDebug>
+#include <QTime>
+
+#include "mypaintlayer.h"
+#include "QStandardItemModel"
 
 using namespace Marble;
 
@@ -27,9 +31,15 @@ class dispWindow : public QMainWindow
 public:
     explicit dispWindow(QWidget *parent = 0);
     ~dispWindow();
-    
+
+    Client x;
+public slots:
+     void activeCarQTableUpdate();
 private:
     Ui::dispWindow *ui;
+    MyPaintLayer* layer;
+    QTimer seconds;
+    QStandardItemModel *model;
 };
 
 #endif // DISPWINDOW_H
