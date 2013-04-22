@@ -18,6 +18,9 @@
 #include "mypaintlayer.h"
 #include "QStandardItemModel"
 
+#include "cartablemodel.h"
+#include "cartabledelegate.h"
+
 using namespace Marble;
 
 namespace Ui {
@@ -33,6 +36,7 @@ public:
     ~dispWindow();
 
     Client x;
+    CarTableModel * carEditModel;
 public slots:
      void activeCarQTableUpdate();
 private:
@@ -40,6 +44,7 @@ private:
     MyPaintLayer* layer;
     QTimer seconds;
     QStandardItemModel *model;
+
 };
 
 #endif // DISPWINDOW_H

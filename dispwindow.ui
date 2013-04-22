@@ -404,7 +404,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -621,13 +621,13 @@
       <property name="title">
        <string>GroupBox</string>
       </property>
-      <widget class="QTableWidget" name="tableWidget">
+      <widget class="QTableView" name="carEditQTable">
        <property name="geometry">
         <rect>
          <x>10</x>
          <y>20</y>
          <width>901</width>
-         <height>251</height>
+         <height>241</height>
         </rect>
        </property>
       </widget>
@@ -644,6 +644,16 @@
       <property name="title">
        <string>Информация об экипаже</string>
       </property>
+      <widget class="QSpinBox" name="spinBox">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>200</y>
+         <width>60</width>
+         <height>27</height>
+        </rect>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_12">
       <property name="geometry">

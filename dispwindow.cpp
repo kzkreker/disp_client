@@ -41,8 +41,13 @@ dispWindow::dispWindow(QWidget *parent) :
     model->setHorizontalHeaderItem(1, new QStandardItem(QString("Номер")));
     model->setHorizontalHeaderItem(2, new QStandardItem(QString("Экипаж")));
     model->setHorizontalHeaderItem(3, new QStandardItem(QString("Активность")));
-
     ui->activeCarQTable->setModel(model);
+
+    //Настройка таблицы с данными о таблице "car"
+    carEditModel = new CarTableModel;
+    ui->carEditQTable->setItemDelegate(new CarTableDelegate); // устанавливаем делегат  представлению
+    ui->carEditQTable->setModel(carEditModel); // устанавливаем модель
+
     seconds.start();
 
 }
