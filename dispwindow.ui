@@ -36,7 +36,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <widget class="QWidget" name="tab_8">
      <attribute name="title">
@@ -48,7 +48,7 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>281</height>
+        <height>661</height>
        </rect>
       </property>
       <property name="title">
@@ -60,7 +60,7 @@
          <x>0</x>
          <y>20</y>
          <width>351</width>
-         <height>261</height>
+         <height>641</height>
         </rect>
        </property>
       </widget>
@@ -99,50 +99,9 @@
          <x>5</x>
          <y>83</y>
          <width>341</width>
-         <height>192</height>
+         <height>571</height>
         </rect>
        </property>
-      </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_9">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>280</y>
-        <width>351</width>
-        <height>381</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Подробно</string>
-      </property>
-      <widget class="QTabWidget" name="tabWidget_3">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>20</y>
-         <width>351</width>
-         <height>361</height>
-        </rect>
-       </property>
-       <property name="currentIndex">
-        <number>0</number>
-       </property>
-       <widget class="QWidget" name="tab_9">
-        <attribute name="title">
-         <string>Экипаж</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tab_10">
-        <attribute name="title">
-         <string>Датчики</string>
-        </attribute>
-       </widget>
-       <widget class="QWidget" name="tab_11">
-        <attribute name="title">
-         <string>Рассылки</string>
-        </attribute>
-       </widget>
       </widget>
      </widget>
     </widget>
@@ -156,53 +115,27 @@
         <x>0</x>
         <y>0</y>
         <width>351</width>
-        <height>171</height>
+        <height>191</height>
        </rect>
       </property>
       <property name="title">
        <string>Поиск пройденого маршрута</string>
       </property>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>144</y>
-         <width>161</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Сбросить таблицу</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>114</y>
-         <width>161</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Показания с датчиков</string>
-       </property>
-      </widget>
-      <widget class="QDateTimeEdit" name="dateTimeEdit">
+      <widget class="QDateTimeEdit" name="periodStart">
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>53</y>
+         <y>63</y>
          <width>191</width>
          <height>27</height>
         </rect>
        </property>
       </widget>
-      <widget class="QDateTimeEdit" name="dateTimeEdit_2">
+      <widget class="QDateTimeEdit" name="periodEnd">
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>83</y>
+         <y>93</y>
          <width>194</width>
          <height>27</height>
         </rect>
@@ -212,7 +145,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>57</y>
+         <y>67</y>
          <width>131</width>
          <height>17</height>
         </rect>
@@ -225,7 +158,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>87</y>
+         <y>97</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -234,12 +167,12 @@
         <string>Конец периода:</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="getTrackButton">
        <property name="geometry">
         <rect>
-         <x>190</x>
-         <y>114</y>
-         <width>141</width>
+         <x>20</x>
+         <y>129</y>
+         <width>311</width>
          <height>27</height>
         </rect>
        </property>
@@ -247,37 +180,24 @@
         <string>Показать маршрут</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>144</y>
-         <width>141</width>
-         <height>27</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Сбросить маршрут</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
          <x>12</x>
-         <y>33</y>
-         <width>61</width>
-         <height>10</height>
+         <y>32</y>
+         <width>71</width>
+         <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>Экипаж </string>
+        <string>Госномер:</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_3">
+      <widget class="QComboBox" name="nomerSelector">
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>23</y>
+         <y>29</y>
          <width>191</width>
          <height>27</height>
         </rect>
@@ -287,23 +207,39 @@
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>170</y>
-        <width>361</width>
-        <height>491</height>
+        <width>331</width>
+        <height>481</height>
        </rect>
       </property>
       <property name="title">
-       <string>Показания датчиков</string>
+       <string>Данные о ТС</string>
       </property>
-      <widget class="QTableView" name="tableView">
+      <widget class="QGroupBox" name="groupBox_4">
        <property name="geometry">
         <rect>
-         <x>0</x>
-         <y>20</y>
-         <width>351</width>
-         <height>471</height>
+         <x>10</x>
+         <y>30</y>
+         <width>301</width>
+         <height>191</height>
         </rect>
+       </property>
+       <property name="title">
+        <string>Экипаж</string>
+       </property>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>321</width>
+         <height>231</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>ТС</string>
        </property>
       </widget>
      </widget>
@@ -393,6 +329,199 @@
       </widget>
      </widget>
     </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Настройки</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_12">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>341</width>
+        <height>141</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Настройки клиента</string>
+      </property>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>30</y>
+         <width>113</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string>999; </string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>132</x>
+         <y>60</y>
+         <width>201</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>http://dataBase:8083/RPC2</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>110</y>
+         <width>321</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string>Иванов Роман Васильевич</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>36</y>
+         <width>191</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Идентификатор клиента:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>6</x>
+         <y>65</y>
+         <width>191</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Путь к серверу:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>94</y>
+         <width>191</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>ФИО пользователя:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>280</y>
+        <width>98</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Применить</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_13">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>160</y>
+        <width>341</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Скорость обновления</string>
+      </property>
+      <widget class="QSpinBox" name="spinBox">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>20</y>
+         <width>60</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_2">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>70</y>
+         <width>60</width>
+         <height>27</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>5</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>191</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Обновление карты с:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>51</y>
+         <width>291</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Обновление информационных блоков с:</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>280</y>
+        <width>98</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Отменить</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
    <widget class="QTabWidget" name="tabWidget_2">
     <property name="geometry">
@@ -400,11 +529,11 @@
       <x>0</x>
       <y>0</y>
       <width>931</width>
-      <height>711</height>
+      <height>701</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -439,41 +568,17 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tab_4">
-     <attribute name="title">
-      <string>Редоктирование геозон</string>
-     </attribute>
-     <widget class="Marble::MarbleWidget" name="MarbleWidget_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>931</width>
-        <height>671</height>
-       </rect>
-      </property>
-      <property name="toolTip">
-       <string>The Earth</string>
-      </property>
-      <property name="whatsThis">
-       <string>The Marble widget displays a virtual globe.</string>
-      </property>
-      <property name="mapThemeId">
-       <string>earth/openstreetmap/openstreetmap.dgml</string>
-      </property>
-     </widget>
-    </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">
       <string>Отчеты</string>
      </attribute>
-     <widget class="Marble::MarbleWidget" name="MarbleWidget_3">
+     <widget class="Marble::MarbleWidget" name="MarblReport">
       <property name="geometry">
        <rect>
         <x>0</x>
         <y>0</y>
         <width>931</width>
-        <height>491</height>
+        <height>461</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -482,37 +587,45 @@
       <property name="whatsThis">
        <string>The Marble widget displays a virtual globe.</string>
       </property>
+      <property name="inputMethodHints">
+       <set>Qt::ImhNone</set>
+      </property>
+      <property name="zoom">
+       <number>2100</number>
+      </property>
       <property name="mapThemeId">
        <string>earth/openstreetmap/openstreetmap.dgml</string>
+      </property>
+      <property name="longitude" stdset="0">
+       <double>82.615255000000005</double>
+      </property>
+      <property name="latitude" stdset="0">
+       <double>49.905400000000007</double>
+      </property>
+      <property name="showIceLayer">
+       <bool>false</bool>
+      </property>
+      <property name="volatileTileCacheLimit">
+       <uLongLong>2000000</uLongLong>
       </property>
      </widget>
      <widget class="QGroupBox" name="groupBox_3">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>490</y>
+        <y>470</y>
         <width>921</width>
-        <height>171</height>
+        <height>191</height>
        </rect>
       </property>
       <property name="title">
-       <string>Построение графика</string>
+       <string>Показания Датчиков</string>
       </property>
-      <widget class="QComboBox" name="comboBox">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>20</y>
-         <width>191</width>
-         <height>27</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>54</y>
+         <x>9</x>
+         <y>64</y>
          <width>131</width>
          <height>17</height>
         </rect>
@@ -524,8 +637,8 @@
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>84</y>
+         <x>9</x>
+         <y>114</y>
          <width>111</width>
          <height>17</height>
         </rect>
@@ -534,80 +647,140 @@
         <string>Конец периода:</string>
        </property>
       </widget>
-      <widget class="QDateTimeEdit" name="dateTimeEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>50</y>
-         <width>191</width>
-         <height>27</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QDateTimeEdit" name="dateTimeEdit_4">
-       <property name="geometry">
-        <rect>
-         <x>140</x>
-         <y>80</y>
-         <width>191</width>
-         <height>27</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>12</x>
-         <y>30</y>
-         <width>61</width>
-         <height>10</height>
+         <x>11</x>
+         <y>20</y>
+         <width>81</width>
+         <height>16</height>
         </rect>
        </property>
        <property name="text">
-        <string>Экипаж </string>
+        <string>Госномер:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_6">
+      <widget class="QTabWidget" name="tabWidget_3">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>0</y>
+         <width>701</width>
+         <height>191</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="tab_14">
+        <attribute name="title">
+         <string>Трек</string>
+        </attribute>
+        <widget class="QTableView" name="gpsTrackView">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>681</width>
+           <height>141</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_11">
+        <attribute name="title">
+         <string>Аналоговые</string>
+        </attribute>
+        <widget class="QTableView" name="picViewAn">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>691</width>
+           <height>151</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_10">
+        <attribute name="title">
+         <string>Цифровые</string>
+        </attribute>
+        <widget class="QTableView" name="picViewDg">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>691</width>
+           <height>151</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QWidget" name="tab_12">
+        <attribute name="title">
+         <string>Температура и потентометр</string>
+        </attribute>
+        <widget class="QTableView" name="picViewTmpPot">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>691</width>
+           <height>151</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QPushButton" name="getPicStatus">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>110</y>
-         <width>131</width>
-         <height>17</height>
+         <y>164</y>
+         <width>191</width>
+         <height>27</height>
         </rect>
        </property>
        <property name="text">
-        <string>Датчик</string>
+        <string>Получить данные</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="sensorsNomer">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>110</y>
+         <x>10</x>
+         <y>37</y>
          <width>191</width>
          <height>27</height>
         </rect>
        </property>
       </widget>
-      <widget class="QGroupBox" name="groupBox_4">
+      <widget class="QDateTimeEdit" name="periodSensorsStart">
        <property name="geometry">
         <rect>
-         <x>340</x>
-         <y>0</y>
-         <width>581</width>
-         <height>171</height>
+         <x>10</x>
+         <y>90</y>
+         <width>194</width>
+         <height>27</height>
         </rect>
        </property>
-       <property name="title">
-        <string>График</string>
+      </widget>
+      <widget class="QDateTimeEdit" name="periodSensorsEnd">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>130</y>
+         <width>194</width>
+         <height>27</height>
+        </rect>
        </property>
       </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_6">
      <attribute name="title">
-      <string>Редактирование экипажей</string>
+      <string>Редактирование БД</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox_10">
       <property name="geometry">
@@ -615,11 +788,11 @@
         <x>0</x>
         <y>10</y>
         <width>921</width>
-        <height>281</height>
+        <height>271</height>
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Экипаж</string>
       </property>
       <widget class="QTableView" name="carEditQTable">
        <property name="geometry">
@@ -635,38 +808,25 @@
      <widget class="QGroupBox" name="groupBox_11">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>290</y>
-        <width>411</width>
+        <x>0</x>
+        <y>270</y>
+        <width>921</width>
         <height>361</height>
        </rect>
       </property>
       <property name="title">
-       <string>Информация об экипаже</string>
+       <string>Транспорт</string>
       </property>
-      <widget class="QSpinBox" name="spinBox">
+      <widget class="QTableView" name="carEditQTable_2">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>200</y>
-         <width>60</width>
-         <height>27</height>
+         <x>10</x>
+         <y>20</y>
+         <width>901</width>
+         <height>341</height>
         </rect>
        </property>
       </widget>
-     </widget>
-     <widget class="QGroupBox" name="groupBox_12">
-      <property name="geometry">
-       <rect>
-        <x>430</x>
-        <y>290</y>
-        <width>411</width>
-        <height>361</height>
-       </rect>
-      </property>
-      <property name="title">
-       <string>Настройки датчиков</string>
-      </property>
      </widget>
     </widget>
    </widget>

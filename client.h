@@ -10,20 +10,31 @@ class Client : public QObject {
     public:
         Client(QObject* parent = 0);
         gpsdata gpssender;
+        gpsdata gpstracksender;
         QDateTime queruDate;
 
     signals:
         void newActiveGPSResiv(gpsdata);
+        void newGPSTrackResiv(gpsdata);
+        void newPicSensorsResiv();
 
     public slots:
         void resivActiveGPS();
+
+        void getGPSTrack(QString dataStart,QString dataEnd,QString carID);
+        void getPicSensors(QString dataStart,QString dataEnd,QString carID);
+
         void setDate(QDateTime date);
+
     private slots:
 
         void testFault(int, const QString &);
-        void resivActiveGPSClient(QVariant &arg);
-        void handleSslErrors(QNetworkReply *reply, const QList<QSslError> &errors);
 
+        void resivActiveGPSClient(QVariant &arg);
+        void resivGPSTrack(QVariant &arg);
+        void resivPicSensors(QVariant &arg);
+
+        void handleSslErrors(QNetworkReply *reply, const QList<QSslError> &errors);
 
     private:
         MaiaXmlRpcClient *rpc;

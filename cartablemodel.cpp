@@ -49,11 +49,15 @@ QVariant CarTableModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
+
+//////////////////////////////////////////////////////////////////////////
+///Важная функция, здесь скорее всего будем регистрировать
+///изменения в таблице и отправлять их в бд!!!
+//////////////////////////////////////////////////////////////////////////
 bool CarTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
     if (index.isValid() && role == Qt::EditRole) {
-        // записываем данные из каждого столбца
-        if(index.column()==0){
+               if(index.column()==0){
                    list.at(index.row())->car_id = value.toInt();
                }
                if(index.column()==1){
@@ -62,6 +66,22 @@ bool CarTableModel::setData(const QModelIndex &index, const QVariant &value, int
                if(index.column()==2){
                    list.at(index.row())->car_number = value.toString();
                }
+               if(index.column()==3){
+                   list.at(index.row())->car_id = value.toInt();
+               }
+               if(index.column()==4){
+                   list.at(index.row())->car_id = value.toInt();
+               }
+               if(index.column()==5){
+                   list.at(index.row())->car_id = value.toInt();
+               }
+               if(index.column()==6){
+                   list.at(index.row())->car_id = value.toInt();
+               }
+               if(index.column()==7){
+                   list.at(index.row())->car_id = value.toInt();
+               }
+
         return true;
     }
     return false;

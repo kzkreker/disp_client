@@ -14,6 +14,7 @@ Client::Client(QObject* parent) : QObject(parent) {
     QSslConfiguration config = rpc->sslConfiguration();
     config.setProtocol(QSsl::AnyProtocol);
 
+
     rpc->setSslConfiguration(config);
 
     //сигнал-слот обработка ошибок
@@ -31,9 +32,120 @@ void Client::resivActiveGPS() {
     args<<queruDate.toString("yyyy-MM-dd hh:mm:ss");;
 
     rpc->call("transport.sendActiveGPS", args,
-                this, SLOT(resivActiveGPSClient(QVariant &)),
+                this, SLOT(resivActiveGPSClient(QVariant&)),
                 this, SLOT(testFault(int, const QString &)));
 
+}
+
+///////////////////////////////////////////////////
+///Запрос трека пройденого ТС
+///////////////////////////////////////////////////
+void Client::getGPSTrack(QString dataStart,QString dataEnd,QString carID)
+{
+    QVariantList args;
+    //формирование параметра запроса
+    args<<dataStart;
+    args<<dataEnd;
+    args<<carID;
+    //отправка запроса на сервер
+    rpc->call("transport.getGPSTrack", args,
+                this, SLOT(resivGPSTrack(QVariant &)),
+                this, SLOT(testFault(int, const QString &)));
+}
+
+///////////////////////////////////////////////////
+///Запрос показаний датчиков
+///////////////////////////////////////////////////
+void Client::getPicSensors(QString dataStart,QString dataEnd,QString carID)
+{
+
+    QVariantList args;
+    //формирование параметра запроса
+    args<<dataStart;
+    args<<dataEnd;
+    args<<carID;
+    //отправка запроса на сервер
+    rpc->call("transport.getPICSensors", args,
+                this, SLOT(resivPicSensors(QVariant &)),
+                this, SLOT(testFault(int, const QString &)));
+}
+
+/////////////////////////////////////////////////////
+///Получение процйденого трека
+/////////////////////////////////////////////////////
+void Client::resivGPSTrack(QVariant &arg)
+{
+    qDebug()<<arg;
+
+    QStringList gpslinelist = arg.toString().split("~");
+QStringList gps_data;
+
+    //Добавляем полученный список активных машин в
+    //динамический список, предварительно его очищаем
+    gpssender.gpstracklist.clear();
+
+    foreach(QString gpsline, gpslinelist){
+
+
+        gps_data= gpsline.split("|");
+
+        if(gps_data.length()==5){
+        gpssender.gpstrackbuffer.datatime= QDateTime::fromString(gps_data[0],
+                                            "yyyy'-'MM'-'dd'T'hh':'mm':'ss");
+        //физические показатели
+        gpssender.gpstrackbuffer.speed=   gps_data[1].toDouble();
+        gpssender.gpstrackbuffer.course=  gps_data[2].toDouble();
+        gpssender.gpstrackbuffer.lat=     gps_data[3].toDouble();
+        gpssender.gpstrackbuffer.lon=     gps_data[4].toDouble();
+
+        gpssender.gpstracklist.append(gpssender.gpstrackbuffer);
+        } else {
+            gpssender.lightvisual = gps_data[0].toInt();}
+        }
+
+  emit   newGPSTrackResiv(gpssender);
+}
+
+/////////////////////////////////////////////////////
+///Получение пройденого трека
+/////////////////////////////////////////////////////
+void Client::resivPicSensors(QVariant &arg)
+{
+    qDebug()<<arg;
+
+   QStringList piclinelist = arg.toString().split("~");
+
+
+    //Добавляем полученный список активных машин в
+    //динамический список, предварительно его очищаем
+    gpssender.piclist.clear();
+
+    QStringList pic;
+    QStringList intan;
+
+    foreach(QString picline, piclinelist){
+
+       pic = picline.split("|");
+
+       qDebug()<<pic;
+
+       if(pic.length()==5){
+
+           intan=pic[0].mid(1,(pic[0].length()-2)).split(",");
+           qDebug()<<intan;
+           gpssender.picitem.an=intan;
+           intan=pic[1].mid(1,(pic[1].length()-2)).split(",");
+           qDebug()<<intan;
+
+           gpssender.picitem.dg=intan;
+           gpssender.picitem.pot=pic[2];
+           gpssender.picitem.tmp=pic[3];
+           gpssender.picitem.datatime=QDateTime::fromString(pic[4],
+                                                             "yyyy'-'MM'-'dd'T'hh':'mm':'ss");
+           gpssender.piclist.append( gpssender.picitem);
+       }
+    }
+  emit   newPicSensorsResiv();
 }
 
 /////////////////////////////////////////////////////
@@ -42,10 +154,10 @@ void Client::resivActiveGPS() {
 void Client::resivActiveGPSClient(QVariant &arg) {
 
 //получаем данные от сервера
- qDebug() << arg;
+qDebug() << arg;
 //конвертируем их в список строк
 QStringList gpslinelist = arg.toStringList();
-
+QStringList gps_data;
 
 //Добавляем полученный список активных машин в
 //динамический список, предварительно его очищаем
@@ -53,7 +165,7 @@ gpssender.gpslist.clear();
 
 foreach(QString gpsline, gpslinelist){
 
-    QStringList gps_data = gpsline.split(",");
+    gps_data = gpsline.split(",");
 
     qDebug()<<gps_data;
     //записываем и передаем данные м QList
@@ -87,19 +199,25 @@ foreach(QString gpsline, gpslinelist){
     gpssender.gpslist.append(gpssender.gpsbuffer);
 
 }
-//передаем новые кординаты в клас слоя
-emit newActiveGPSResiv(gpssender);
+    //передаем новые кординаты в клас слоя
+    emit newActiveGPSResiv(gpssender);
+    // gpssender.gpslist.clear();
 }
 
-
 /////////////////////////////////////////////////////
-///обработка сбоев
+///обработка сбоев: потеря соединения
 /////////////////////////////////////////////////////
 void Client::testFault(int error, const QString &message) {
         qDebug() << "EEE:" << error << "-" << message;
+
+        //сбрасываем массив активных машин
         gpssender.gpslist.clear();
+        emit newActiveGPSResiv(gpssender);
 }
 
+/////////////////////////////////////////////////////
+///обработка сбоев: плохой сертификат
+/////////////////////////////////////////////////////
 void Client::handleSslErrors(QNetworkReply *reply, const QList<QSslError> &errors) {
     qDebug() << "SSL Error:" << errors;
     reply->ignoreSslErrors(); // don't do this in real code! Fix your certs!

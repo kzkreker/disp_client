@@ -1,5 +1,8 @@
 #include "mypaintlayer.h"
 
+#include <marble/MarbleWidget.h>
+#include <marble/GeoPainter.h>
+#include <marble/GeoDataLineString.h>
 
 ///////////////////////////////////////////////
 ///Конструктор слоя
@@ -83,8 +86,29 @@ bool MyPaintLayer::render( GeoPainter *painter, ViewportParams *viewport,
              marker = Rotate(marker_no_active, gpssender.gpsitem.course);
         }
         //рисуем иконку
+        painter->setPen(QColor( 0, 0, 0 ));
         painter->drawImage(home, marker);
+
+
+
+        painter->drawText(home,gpssender.gpsitem.car_name);
      }
+
+        GeoDataCoordinates France( 2.2, 48.52, 0.0, GeoDataCoordinates::Degree );
+        painter->setPen( QColor( 0, 0, 0 ) );
+        painter->drawText( France, "France" );
+
+        GeoDataCoordinates Canada( -77.02, 48.52, 0.0, GeoDataCoordinates::Degree );
+        painter->setPen( QColor( 0, 0, 0 ) );
+        painter->drawText( Canada, "Canada" );
+
+        //A line from France to Canada without tessellation
+
+       GeoDataLineString shapeNoTessellation( RespectLatitudeCircle | Tessellate );
+        shapeNoTessellation << France << Canada;
+
+        painter->setPen(QColor( 0, 0, 0 ));
+        painter->drawPolyline(shapeNoTessellation );
 
     return true;
 }

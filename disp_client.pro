@@ -19,18 +19,18 @@ SOURCES += main.cpp\
     client.cpp \
     gpsdata.cpp \
     mypaintlayer.cpp \
-    trer.cpp \
     cardata.cpp \
     cartablemodel.cpp \
-    cartabledelegate.cpp
+    cartabledelegate.cpp \
+    mypaintlayertrack.cpp
 
 HEADERS  += dispwindow.h \
     client.h \
     gpsdata.h \
     mypaintlayer.h \
-    trer.h \
     cardata.h \
     cartablemodel.h \
-    cartabledelegate.h
+    cartabledelegate.h \
+    mypaintlayertrack.h
 LIBS     += -lmarblewidget -lQtGui -lQtCore
 FORMS    += dispwindow.ui

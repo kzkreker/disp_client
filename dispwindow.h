@@ -16,6 +16,7 @@
 #include <QTime>
 
 #include "mypaintlayer.h"
+#include "mypaintlayertrack.h"
 #include "QStandardItemModel"
 
 #include "cartablemodel.h"
@@ -39,12 +40,21 @@ public:
     CarTableModel * carEditModel;
 public slots:
      void activeCarQTableUpdate();
+     void nomerSelektorGet();
+     void getGPSTrackData();
+     void gpsTrackUpdate();
+     void getPicStatusTable();
+     void getPicStatusData();
+
+
 private:
     Ui::dispWindow *ui;
     MyPaintLayer* layer;
+    myPaintLayerTrack *layerTrack;
     QTimer seconds;
+    QTimer minets;
     QStandardItemModel *model;
-
+    QMap<QString,QString> NumberCarID;
 };
 
 #endif // DISPWINDOW_H
